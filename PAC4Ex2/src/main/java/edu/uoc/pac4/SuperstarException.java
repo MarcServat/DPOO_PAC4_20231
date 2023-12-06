@@ -1,4 +1,4 @@
-package pac4;
+package edu.uoc.pac4;
 
 public class SuperstarException extends Exception {
     public static final String MSG_ERR_BIRTH_NAME_NULL = "Superstar's birth name mustn't be null";

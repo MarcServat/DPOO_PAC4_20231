@@ -1,10 +1,10 @@
-package pac4;
+package edu.uoc.pac4;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
-public class Superstar {
+public abstract class Superstar {
     private String birthName = "Anonymous";
     private LocalDate birthDate = LocalDate.now().minusDays(1);
     private String birthplace = "New York";
@@ -24,7 +24,7 @@ public class Superstar {
     public static final int WEIGHT_MIN_VALUE = 30;
 
 
-    public Superstar() throws SuperstarException {
+    protected Superstar() throws SuperstarException {
         this.setBirthName(this.birthName);
         this.setBirthDate(this.birthDate);
         this.setBirthplace(this.birthplace);
@@ -34,9 +34,9 @@ public class Superstar {
         this.setRingName(this.ringName);
     }
 
-    public Superstar(String birthName, LocalDate birthDate, String birthplace, Gender gender, double height,
-                     double weight,
-                     String ringName) throws SuperstarException {
+    protected Superstar(String birthName, LocalDate birthDate, String birthplace, Gender gender, double height,
+                        double weight,
+                        String ringName) throws SuperstarException {
         this.setBirthName(birthName);
         this.setBirthDate(birthDate);
         this.setBirthplace(birthplace);
@@ -53,7 +53,8 @@ public class Superstar {
     public void setBirthName(String birthName) throws SuperstarException {
         if (birthName == null) {
             throw new SuperstarException(SuperstarException.MSG_ERR_BIRTH_NAME_NULL);
-        } else if (birthName.trim().length() < BIRTH_NAME_MIN_LENGTH || birthName.trim().length() > BIRTH_NAME_MAX_LENGTH) {
+        } else if (birthName.trim().length() < BIRTH_NAME_MIN_LENGTH || birthName.trim()
+                .length() > BIRTH_NAME_MAX_LENGTH) {
             throw new SuperstarException(SuperstarException.MSG_ERR_BIRTH_NAME_LENGTH);
         } else if (birthName.matches(".*[0-9].*")) {
             throw new SuperstarException(SuperstarException.MSG_ERR_BIRTH_NAME_NUMBERS);
@@ -74,7 +75,9 @@ public class Superstar {
         }
     }
 
-    public String getBirthplace() { return birthplace; }
+    public String getBirthplace() {
+        return birthplace;
+    }
 
     public void setBirthplace(String birthplace) throws SuperstarException {
         if (birthplace == null) {
@@ -147,10 +150,10 @@ public class Superstar {
 
     @Override
     public String toString() {
-
         return this.getRingName().toUpperCase() + System.lineSeparator()
                 + "\t" + "Birth name: " + this.getBirthName() + System.lineSeparator()
-                + "\t" + "Born: " + this.getBirthDate().format(DateTimeFormatter.ofPattern("dd-MM-uuuu")) + System.lineSeparator()
+                + "\t" + "Born: " + this.getBirthDate()
+                .format(DateTimeFormatter.ofPattern("dd-MM-uuuu")) + System.lineSeparator()
                 + "\t      " + this.getBirthplace();
     }
 }

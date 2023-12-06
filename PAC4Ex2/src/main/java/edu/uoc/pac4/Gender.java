@@ -1,4 +1,4 @@
-package pac4;
+package edu.uoc.pac4;
 
 public enum Gender {
     MALE,

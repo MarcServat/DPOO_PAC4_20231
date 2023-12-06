@@ -1,6 +1,6 @@
 package edu.uoc.pac4;
 
-public class Wrestler{
+public class Wrestler {
     String birthName;
     String ringName;
 
@@ -13,7 +13,7 @@ public class Wrestler{
         setBirthName(birthName);
         setRingName(ringName);
         birthplace = new Birthplace(city, country);
-        properties = new WrestlerProperties(strength,agility,stamina,technique,defense);
+        properties = new WrestlerProperties(strength, agility, stamina, technique, defense);
     }
 
     public String getBirthName() {
@@ -38,5 +38,18 @@ public class Wrestler{
 
     public WrestlerProperties getProperties() {
         return properties;
+    }
+
+    public Wrestler clone() throws CloneNotSupportedException {
+        return new Wrestler(
+                this.getBirthName(),
+                this.getRingName(),
+                birthplace.getCity(),
+                birthplace.getCountry(),
+                properties.getStrength(),
+                properties.getAgility(),
+                properties.getStamina(),
+                properties.getTechnique(),
+                properties.getDefense());
     }
 }
