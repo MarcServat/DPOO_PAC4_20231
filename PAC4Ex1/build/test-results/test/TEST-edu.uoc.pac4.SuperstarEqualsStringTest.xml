@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.uoc.pac4.SuperstarEqualsStringTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-12-02T11:57:36" hostname="ESC02FK2E0MD6R" time="0.051">
+<testsuite name="edu.uoc.pac4.SuperstarEqualsStringTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-12-11T15:59:42" hostname="ESC02FK2E0MD6R" time="0.046">
   <properties/>
-  <testcase name="testToString()" classname="edu.uoc.pac4.SuperstarEqualsStringTest" time="0.043"/>
+  <testcase name="testToString()" classname="edu.uoc.pac4.SuperstarEqualsStringTest" time="0.039"/>
   <testcase name="testEqualsKO1()" classname="edu.uoc.pac4.SuperstarEqualsStringTest" time="0.001"/>
   <testcase name="testEqualsKO2()" classname="edu.uoc.pac4.SuperstarEqualsStringTest" time="0.001"/>
   <testcase name="testEqualsKO3()" classname="edu.uoc.pac4.SuperstarEqualsStringTest" time="0.001"/>

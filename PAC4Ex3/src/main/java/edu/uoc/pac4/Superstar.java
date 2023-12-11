@@ -5,26 +5,98 @@ import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import java.util.Set;
 
+/**
+ * The abstract {@code Superstar} class serves as a base class for representing celebrities in the entertainment industry.
+ * Concrete subclasses must provide specific implementations for certain methods. This class includes attributes such as
+ * birth name, birthdate, birthplace, gender, height, weight, and ring name.
+ *
+ * @author Marc Servat
+ * @version 1.0
+ * @since 2023-12-11
+ */
 public abstract class Superstar {
+
+    /**
+     * Default birth name for a superstar if not provided.
+     */
     private String birthName = "Anonymous";
+
+    /**
+     * Default birthdate for a superstar if not provided.
+     */
     private LocalDate birthDate = LocalDate.now().minusDays(1);
+
+    /**
+     * Default birthplace for a superstar if not provided.
+     */
     private String birthplace = "New York";
+
+    /**
+     * Default height for a superstar if not provided.
+     */
     private double height = 168;
+
+    /**
+     * Default weight for a superstar if not provided.
+     */
     private double weight = 54;
+
+    /**
+     * Default ring name for a superstar if not provided.
+     */
     private String ringName = "Superstar";
+
+    /**
+     * Default gender for a superstar if not provided.
+     */
     private Gender gender;
 
-    // Constants
+    /**
+     * Minimum length for the birth name.
+     */
     public static final int BIRTH_NAME_MIN_LENGTH = 1;
+
+    /**
+     * Maximum length for the birth name.
+     */
     public static final int BIRTH_NAME_MAX_LENGTH = 60;
+
+    /**
+     * Minimum length for the birthplace.
+     */
     public static final int BIRTHPLACE_MIN_LENGTH = 1;
+
+    /**
+     * Maximum length for the birthplace.
+     */
     public static final int BIRTHPLACE_MAX_LENGTH = 80;
+
+    /**
+     * Minimum length for the ring name.
+     */
     public static final int RING_NAME_MIN_LENGTH = 1;
+
+    /**
+     * Maximum length for the ring name.
+     */
     public static final int RING_NAME_MAX_LENGTH = 60;
+
+    /**
+     * Minimum allowed height for a superstar.
+     */
     public static final int HEIGHT_MIN_VALUE = 100;
+
+    /**
+     * Minimum allowed weight for a superstar.
+     */
     public static final int WEIGHT_MIN_VALUE = 30;
 
 
+    /**
+     * Default constructor for a superstar. Initializes with default values.
+     *
+     * @throws SuperstarException if there is an issue with the default values.
+     */
     protected Superstar() throws SuperstarException {
         this.setBirthName(this.birthName);
         this.setBirthDate(this.birthDate);
@@ -35,6 +107,18 @@ public abstract class Superstar {
         this.setRingName(this.ringName);
     }
 
+    /**
+     * Constructor for a superstar with specified attributes.
+     *
+     * @param birthName  The birth name of the superstar.
+     * @param birthDate  The birthdate of the superstar.
+     * @param birthplace The birthplace of the superstar.
+     * @param gender     The gender of the superstar.
+     * @param height     The height of the superstar.
+     * @param weight     The weight of the superstar.
+     * @param ringName   The ring name of the superstar.
+     * @throws SuperstarException if there is an issue with the provided values.
+     */
     protected Superstar(String birthName, LocalDate birthDate, String birthplace, Gender gender, double height,
                         double weight,
                         String ringName) throws SuperstarException {
@@ -47,10 +131,21 @@ public abstract class Superstar {
         this.setRingName(ringName);
     }
 
+    /**
+     * Gets the birth name of the superstar.
+     *
+     * @return The birth name of the superstar.
+     */
     public String getBirthName() {
         return birthName;
     }
 
+    /**
+     * Sets the birth name of the superstar with validation.
+     *
+     * @param birthName The birth name to set.
+     * @throws SuperstarException if the provided birth name is invalid.
+     */
     public void setBirthName(String birthName) throws SuperstarException {
         if (birthName == null) {
             throw new SuperstarException(SuperstarException.MSG_ERR_BIRTH_NAME_NULL);
@@ -64,10 +159,21 @@ public abstract class Superstar {
         }
     }
 
+    /**
+     * Gets the birthdate of the superstar.
+     *
+     * @return The birth date of the superstar.
+     */
     public LocalDate getBirthDate() {
         return birthDate;
     }
 
+    /**
+     * Sets the birth date of the superstar with validation.
+     *
+     * @param birthDate The birth date to set.
+     * @throws SuperstarException if the provided birth date is invalid.
+     */
     public void setBirthDate(LocalDate birthDate) throws SuperstarException {
         if (birthDate == null || !birthDate.isBefore(LocalDate.now())) {
             throw new SuperstarException(SuperstarException.MSG_ERR_BIRTH_DATE);
@@ -76,10 +182,21 @@ public abstract class Superstar {
         }
     }
 
+    /**
+     * Gets the birthplace of the superstar.
+     *
+     * @return The birthplace of the superstar.
+     */
     public String getBirthplace() {
         return birthplace;
     }
 
+    /**
+     * Sets the birthplace of the superstar with validation.
+     *
+     * @param birthplace The birthplace to set.
+     * @throws SuperstarException if the provided birthplace is invalid.
+     */
     public void setBirthplace(String birthplace) throws SuperstarException {
         if (birthplace == null) {
             throw new SuperstarException(SuperstarException.MSG_ERR_BIRTHPLACE_NULL);
@@ -91,18 +208,39 @@ public abstract class Superstar {
         }
     }
 
+    /**
+     * Gets the gender of the superstar.
+     *
+     * @return The gender of the superstar.
+     */
     public Gender getGender() {
         return this.gender;
     }
 
+    /**
+     * Sets the gender of the superstar.
+     *
+     * @param gender The gender to set.
+     */
     public void setGender(Gender gender) {
         this.gender = gender;
     }
 
+    /**
+     * Gets the height of the superstar.
+     *
+     * @return The height of the superstar.
+     */
     public double getHeight() {
         return height;
     }
 
+    /**
+     * Sets the height of the superstar with validation.
+     *
+     * @param height The height to set.
+     * @throws SuperstarException if the provided height is less than or equal to 100.
+     */
     public void setHeight(double height) throws SuperstarException {
         if (height <= HEIGHT_MIN_VALUE) {
             throw new SuperstarException(SuperstarException.MSG_ERR_HEIGHT);
@@ -111,10 +249,21 @@ public abstract class Superstar {
         }
     }
 
+    /**
+     * Gets the weight of the superstar.
+     *
+     * @return The weight of the superstar.
+     */
     public double getWeight() {
         return weight;
     }
 
+    /**
+     * Sets the weight of the superstar with validation.
+     *
+     * @param weight The weight to set.
+     * @throws SuperstarException if the provided weight is less than or equal to 30.
+     */
     public void setWeight(double weight) throws SuperstarException {
         if (weight <= WEIGHT_MIN_VALUE) {
             throw new SuperstarException(SuperstarException.MSG_ERR_WEIGHT);
@@ -123,10 +272,21 @@ public abstract class Superstar {
         }
     }
 
+    /**
+     * Gets the ring name of the superstar.
+     *
+     * @return The ring name of the superstar.
+     */
     public String getRingName() {
         return ringName;
     }
 
+    /**
+     * Sets the ring name of the superstar with validation.
+     *
+     * @param ringName The ring name to set.
+     * @throws SuperstarException if the provided ring name is invalid.
+     */
     public void setRingName(String ringName) throws SuperstarException {
         if (ringName == null) {
             throw new SuperstarException(SuperstarException.MSG_ERR_RING_NAME_NULL);
@@ -137,6 +297,12 @@ public abstract class Superstar {
         }
     }
 
+    /**
+     * Checks if two superstars are equal based on certain attributes.
+     *
+     * @param obj The object to compare with.
+     * @return {@code true} if the superstars are equal, {@code false} otherwise.
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Superstar) {
@@ -149,6 +315,9 @@ public abstract class Superstar {
         }
     }
 
+    /**
+     * @return A string representation of the superstar.
+     */
     @Override
     public String toString() {
         return this.getRingName().toUpperCase() + System.lineSeparator()

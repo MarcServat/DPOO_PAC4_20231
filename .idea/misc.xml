@@ -19,6 +19,12 @@
     <option name="pathToJarWithRules" value="" />
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/PAC4Ex1" />
+    <file type="web" url="file://$PROJECT_DIR$/PAC4Ex2" />
+    <file type="web" url="file://$PROJECT_DIR$/PAC4Ex3" />
+    <file type="web" url="file://$PROJECT_DIR$/PAC4Ex4" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="corretto-17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>

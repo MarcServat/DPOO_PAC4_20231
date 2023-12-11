@@ -8,13 +8,34 @@ import edu.uoc.pac4.wrestler.WrestlerException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Represents a wrestler with a Striker style.
+ */
 public class Striker extends Wrestler {
+
+    /**
+     * Constructs a Striker wrestler with the specified attributes.
+     *
+     * @param birthName  The birth name of the wrestler.
+     * @param birthDate  The birth date of the wrestler.
+     * @param birthplace The birthplace of the wrestler.
+     * @param gender     The gender of the wrestler.
+     * @param height     The height of the wrestler.
+     * @param weight     The weight of the wrestler.
+     * @param ringName   The ring name of the wrestler.
+     * @throws SuperstarException If there is an issue with the Superstar attributes.
+     * @throws WrestlerException  If there is an issue with the Wrestler attributes.
+     */
     public Striker(String birthName, LocalDate birthDate, String birthplace, Gender gender, double height,
                    double weight, String ringName) throws SuperstarException, WrestlerException {
-        super(birthName, birthDate, birthplace, gender, height, weight, ringName, 25, 20, 25, 10,
-                20);
+        super(birthName, birthDate, birthplace, gender, height, weight, ringName, 25, 20, 25, 10, 20);
     }
 
+    /**
+     * Generates a string representation of the Striker wrestler.
+     *
+     * @return A formatted string containing the wrestler's information.
+     */
     @Override
     public String toString() {
         return this.getRingName().toUpperCase() + System.lineSeparator()
